@@ -1,0 +1,18 @@
+<h3> Comments </h3>
+<% if @article.comments.count>0 %>
+
+<% @article.comments.each do |c| %>
+    <% if c.id!=nil%>
+    <p>
+    <strong>Commenter:</strong>
+     <%= c.commenter%></p>
+     <P>
+     <strong>Body:</strong> <%= c.body%></p>
+    <p> 
+    <%= link_to "X",[@article, c],
+                    method: :delete, 
+                    data: { confirm: 'Are you sure..?'}%>
+     </p>
+<%end%>
+<%end%>
+<%end%>
